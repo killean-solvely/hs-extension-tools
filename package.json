@@ -1,6 +1,6 @@
 {
   "name": "hs-extension-tools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility types and hooks for Serverless Functions in Hubspot Card Extensions",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
