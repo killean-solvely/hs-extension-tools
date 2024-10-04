@@ -1,0 +1,26 @@
+{
+  "name": "hs-extension-tools",
+  "version": "1.0.2",
+  "description": "Utility types and hooks for Serverless Functions in Hubspot Card Extensions",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "publish-npm": "npm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@hubspot/ui-extensions": "latest"
+  }
+}
