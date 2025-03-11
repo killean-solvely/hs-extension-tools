@@ -17,6 +17,8 @@ const useQuery = (context) => (fnType, params, options = {}) => {
             throw new Error("No context provided");
         }
         setLoading(true);
+        setError("");
+        setIsError(false);
         try {
             const result = (await context.runServerlessFunction({
                 name: fnType,
@@ -30,9 +32,17 @@ const useQuery = (context) => (fnType, params, options = {}) => {
                     options.onError?.(result.message);
                     return null;
                 case ui_extensions_1.ServerlessExecutionStatus.Success: {
-                    setData(result.response.data);
-                    options.onSuccess?.(result.response.data);
-                    return result.response.data;
+                    if (result.response.error) {
+                        setError(result.response.error);
+                        setIsError(true);
+                        options.onError?.(result.response.error);
+                        return null;
+                    }
+                    else {
+                        setData(result.response.data);
+                        options.onSuccess?.(result.response.data);
+                        return result.response.data;
+                    }
                 }
             }
         }
